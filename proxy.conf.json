@@ -1,0 +1,7 @@
+{
+    "/api": {
+      "target": "https://ancient-thicket-17863.herokuapp.com",
+      "secure": false,
+      "logLevel": "debug"
+    }        
+}

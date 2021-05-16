@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="titulo text-center">
+                        DASHBOARDS EJECUTADOS
+                    </h3>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-primary" [routerLink]="['/products']" routerLinkActive="active" >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                            </svg>
+                            &nbsp;
+                            Volver
+                        </button>
+                   </div>
+                  </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-sm-6 mt-4" *ngFor="let dashboard of dashboardList">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Dashboard # {{ dashboard.id }}</h5>
+            <p>Fecha de creación en la base de datos: {{ dashboard.created_at }} </p>
+            <ul>
+                <li><p class="card-text">Número de registros cargados: {{ dashboard.total }}</p></li>
+                <li><p class="card-text">Tiempo de carga: {{ dashboard.loading_time }} segundos.</p></li>
+                <li><p class="card-text">Número de registros que subieron: {{ dashboard.uploaded }}</p></li>
+                <li><p class="card-text">Número de registros que no subieron: {{ dashboard.not_uploaded }}</p></li>
+
+            </ul>
+            
+        </div>
+        
+      </div>
+    </div>
+    
+</div>
