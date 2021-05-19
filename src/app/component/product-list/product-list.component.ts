@@ -5,7 +5,8 @@ import { ProductService } from './../../services/product.service';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.css'],
+  providers: [ProductService]
 })
 export class ProductListComponent implements OnInit {
 
@@ -16,7 +17,7 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getAll().subscribe(rest => {
       this.productList = rest;
-      //console.log(this.productList);
+      console.log(this.productList);
 
       //this.productList.forEach( element => console.log(element.table) );
 

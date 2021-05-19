@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,17 +7,24 @@ import { Observable } from 'rxjs';
 })
 export class DashboardService {
 
-  _url = '/api/products/dashboards';
+  _url: string = '/api/dashboards';
+  
 
 
   constructor(private http:HttpClient) { }
 
   getAll():Observable<any> {
-    return this.http.get(this._url);
+    const headers = new HttpHeaders({
+      "Access-Control-Allow-Headers": "*"
+    });
+    return this.http.get<any>(this._url, { headers });
   }
 
   load():Observable<any> {
-    return this.http.get(`${this._url}/new`);
+    const headers = new HttpHeaders({
+      "Access-Control-Allow-Headers": "*"
+    });
+    return this.http.get(`${this._url}/new`, { headers });
   }
 
   create():Observable<any>{

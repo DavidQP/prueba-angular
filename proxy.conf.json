@@ -1,7 +1,8 @@
 {
-    "/api": {
-      "target": "https://ancient-thicket-17863.herokuapp.com",
+    "/api/*": {
+      "target": "https://demo-rails-products-backend.herokuapp.com",
       "secure": false,
+      "changeOrigin": true,
       "logLevel": "debug"
     }        
 }

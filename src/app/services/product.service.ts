@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  _url = '/api/products';
+  _url: string  = '/api/products';
 
   constructor(
     private http: HttpClient
@@ -15,11 +15,18 @@ export class ProductService {
    }
 
    getAll():Observable<any> {
-     return this.http.get(this._url);
+    console.log(this._url);
+     let headers = new HttpHeaders()
+      .set('content-type', 'application/json')
+      .set('Access-Control-Allow-Origin', '*')
+      .set('Access-Control-Allow-Headers', '*')
+      .set('Access-Control-Allow-Methods', '*')
+      .set('Allow', '*');
+     return this.http.get<any>(`${this._url}`);
    }
 
    read(id: number):Observable<any> {
-    return this.http.get(`${this._url}/${id}`);
+    return this.http.get<any>(`${this._url}/${id}`);
    }
    
 }
